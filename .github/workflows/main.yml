@@ -147,8 +147,8 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
-        source: "docker-compose.production.yml"
-        target: "kittygram_final/*"
+        source: "/home/yc-user/kittygram_final/docker-compose.production.yml"
+        target: "/home/yc-user/kittygram_final/kittygram_final"
     - name: Executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
