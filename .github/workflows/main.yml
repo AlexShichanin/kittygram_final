@@ -137,18 +137,16 @@ jobs:
       - build_gateway_and_push_to_docker_hub
     steps:
     - name: Checkout repo
-      uses: actions/checkout@v0.1.3
+      uses: actions/checkout@v3
     - name: Copy docker-compose.yml via ssh
       uses: appleboy/scp-action@master
-    # Передаём параметры для action appleboy/scp-action:
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
-        source: "kittygram_final/docker-compose.production.yml"
-        target: "kittygram_final"
-        strip_components: 1
+        source: "docker-compose.production.yml"
+        target: "/kittygram_final"
     - name: Executing remote ssh commands to deploy
       uses: appleboy/ssh-action@master
       with:
@@ -156,7 +154,6 @@ jobs:
         username: ${{ secrets.USER }}
         key: ${{ secrets.SSH_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
-
         script: |
           cd kittygram_final
           # Выполняет pull образов с Docker Hub
