@@ -1,9 +1,10 @@
 Kittygram
-Учебный проект коты_финал
+Учебный проект
 
 example workflow
 
-Этот проект позволит вам выкладывать свои и любоваться чужими фото котов и кошек. В описание добавьте имя, цвет и достижения пушистого героя. 
+Этот проект позволит вам выкладывать свои и любоваться чужими фото котов и кошек. 
+В описание добавьте имя, цвет и достижения пушистого героя. 
 
 Описание проекта
 
@@ -47,6 +48,7 @@ docker compose -f docker-compose.yml exec backend cp -r /app/static_backend/. /b
 .env
 В корне проекта создайте файл .env и пропишите в него свои данные.
 
+
 Пример:
 
 POSTGRES_DB=kittygram
@@ -55,7 +57,8 @@ POSTGRES_PASSWORD=kittygram_password
 DB_NAME=kittygram
 
 Workflow
-Для использования Continuous Integration (CI) и Continuous Deployment (CD): в репозитории GitHub Actions Settings/Secrets/Actions прописать Secrets - переменные окружения для доступа к сервисам:
+Для использования Continuous Integration (CI) и Continuous Deployment (CD): 
+в репозитории GitHub Actions Settings/Secrets/Actions прописать Secrets - переменные окружения для доступа к сервисам:
 
 SECRET_KEY                     # стандартный ключ, который создается при старте проекта
 
